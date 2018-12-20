@@ -5,17 +5,18 @@ import com.example.graphqlstarter.repositories.MemberRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service("memberService")
 public class MemberService {
-   private MemberRepository memberRepository;
-
    @Autowired
-   public MemberService(MemberRepository memberRepository) {
-       this.memberRepository=  memberRepository;
-   }
+   private MemberRepository memberRepository;
 
    public Member findMemberByEmail(String email) {
        return memberRepository.findByEmail(email);
    }
-} 
+
+   public List<Member> getAllMembers() {
+       return memberRepository.findAll();
+   }
+}

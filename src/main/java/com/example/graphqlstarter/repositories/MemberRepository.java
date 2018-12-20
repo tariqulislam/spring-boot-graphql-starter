@@ -12,4 +12,8 @@ import org.springframework.stereotype.Repository;
 public interface MemberRepository extends JpaRepository<Member, Long> {
     Member findByEmail(String email);
     List<Member> findAll(Pageable pageable);
+    void saveMember(Member member);
+    void updateMember(Member member);
+    void deleteMember(Member member);
+    boolean isMemberExist(Member member);
 }
