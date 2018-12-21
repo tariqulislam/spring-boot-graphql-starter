@@ -34,4 +34,13 @@ public class MemberService {
      final Member mymember = memberRepository.save(updateMember);
      return mymember;
    }
+
+   public Boolean deleteMember (Long id) {
+      Member delMember  = memberRepository.findById(id).orElse(null);
+      if(delMember != null) {
+          memberRepository.delete(delMember);
+          return true;
+      }
+      return false;
+   }
 }
