@@ -1,7 +1,6 @@
 package com.example.graphqlstarter.controllers;
 
 import com.example.graphqlstarter.models.Member;
-import com.example.graphqlstarter.repositories.MemberRepository;
 import com.example.graphqlstarter.services.MemberService;
 
 import org.springframework.beans.factory.annotation.Autowired;
