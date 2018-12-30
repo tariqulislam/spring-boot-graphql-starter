@@ -3,8 +3,11 @@ package com.example.graphqlstarter.controllers;
 import com.example.graphqlstarter.models.Member;
 import com.example.graphqlstarter.services.MemberService;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,4 +41,9 @@ public class MemberController {
     @PathVariable(value= "id") Long id) {
         return ResponseEntity.ok(memberService.updateMember(member, id));
     }
+
+  @DeleteMapping("/members/{id}")
+  public ResponseEntity<?> deleteMemeber(@PathVariable Long id) {
+     return ResponseEntity.ok(memberService.deleteMember(id));
+  }
 }
