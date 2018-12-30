@@ -3,9 +3,7 @@ package com.example.graphqlstarter.controllers;
 import com.example.graphqlstarter.models.Member;
 import com.example.graphqlstarter.services.MemberService;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
