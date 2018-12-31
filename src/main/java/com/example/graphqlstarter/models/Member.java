@@ -64,7 +64,6 @@ public class Member implements Serializable{
     @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
     @JsonIdentityReference(alwaysAsId=true)
     @JsonProperty("group_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JsonManagedReference
     private Group group;
 
