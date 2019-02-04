@@ -2,20 +2,10 @@ package com.example.graphqlstarter.controllers;
 
 import com.example.graphqlstarter.models.Member;
 import com.example.graphqlstarter.services.MemberService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-
+import org.springframework.web.bind.annotation.*;
+import java.util.*;
 import javax.validation.Valid;
 
 @RestController
@@ -42,6 +32,15 @@ public class MemberController {
 
   @DeleteMapping("/members/{id}")
   public ResponseEntity<?> deleteMemeber(@PathVariable Long id) {
-     return ResponseEntity.ok(memberService.deleteMember(id));
+    Map<String,String> response = new HashMap<String,String>();
+    if(memberService.deleteMember(id)) {
+      response.put("status", "success");
+      response.put("message", "member deleted successfully");
+       return ResponseEntity.ok(response);
+    } else {
+      response.put("status", "error");
+      response.put("message", "Somthing went wrong when delete the member");
+      return ResponseEntity.status(500).body(response);
+    }
   }
 }
